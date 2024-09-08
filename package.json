@@ -1,0 +1,39 @@
+{
+  "name": "@vramework/example-express",
+  "version": "0.0.0",
+  "description": "An example to a minimal express deployment with vramework",
+  "main": "bin/main.ts",
+  "dependencies": {
+    "@vramework/core": "^0.1.13",
+    "@vramework/deploy-express": "^0.1.13"
+  },
+  "devDependencies": {
+    "@vramework/cli": "^0.1.13",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.5.4"
+  },
+  "scripts": {
+    "tsc": "tsc",
+    "schema": "npx @vramework/cli schemas",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node --transpile-only bin/main.ts",
+    "dev": "tsnd --respawn bin/main.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vramework/express-example.git"
+  },
+  "keywords": [
+    "server",
+    "nodejs",
+    "http"
+  ],
+  "author": "Yasser Fadl",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vramework/express-example/issues"
+  },
+  "homepage": "https://github.com/vramework/express-example#readme",
+  "packageManager": "^npm@10.8.2"
+}

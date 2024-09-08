@@ -1,0 +1,5 @@
+{
+    "routeDirectories": ["./src"],
+    "schemaOutputDirectory": "./generated",
+    "tsconfig": "./tsconfig.json"
+}
