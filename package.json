@@ -1,14 +1,17 @@
 {
-  "name": "@vramework/example-express",
+  "name": "@vramework/express-starter",
   "version": "0.0.0",
   "description": "An example to a minimal express deployment with vramework",
   "main": "bin/main.ts",
   "dependencies": {
-    "@vramework/core": "^0.1.13",
-    "@vramework/deploy-express": "^0.1.13"
+    "@vramework/core": "^0.1.16",
+    "@vramework/deploy-express": "^0.1.16",
+    "@vramework/services-local": "^0.1.16"
   },
   "devDependencies": {
-    "@vramework/cli": "^0.1.13",
+    "@vramework/cli": "^0.1.16",
+    "oxlint": "^0.9.5",
+    "prettier": "^3.3.3",
     "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.5.4"
@@ -18,7 +21,9 @@
     "schema": "npx @vramework/cli schemas",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "ts-node --transpile-only bin/main.ts",
-    "dev": "tsnd --respawn bin/main.ts"
+    "dev": "tsnd --respawn bin/main.ts",
+    "lint": "npx oxlint@latest",
+    "prettier": "npx prettier . --write"
   },
   "repository": {
     "type": "git",
