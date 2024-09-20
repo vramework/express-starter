@@ -8,21 +8,21 @@ import {
 import { type APIRoutes, type APIRoute } from './vramework-types'
 
 const getBooks: APIRoute<void, Books> = {
-  type: 'post',
+  method: 'post',
   route: '/books',
   schema: null,
   func: async (services) => await services.books.getBooks(),
 }
 
 const getBook: APIRoute<CreateBook, Book> = {
-  type: 'get',
+  method: 'get',
   route: '/book/:id',
   schema: 'JustBookId',
   func: async (services, data) => await services.books.createBook(data),
 }
 
 const updateBook: APIRoute<UpdateBook, Book> = {
-  type: 'patch',
+  method: 'patch',
   route: '/book/:id',
   schema: 'UpdateBook',
   func: async (services, { id, ...book }) =>
@@ -30,7 +30,7 @@ const updateBook: APIRoute<UpdateBook, Book> = {
 }
 
 const deleteBook: APIRoute<JustBookId, boolean> = {
-  type: 'delete',
+  method: 'delete',
   route: '/book/:id',
   schema: 'JustBookId',
   func: async (services, data) => await services.books.deleteBook(data.id),

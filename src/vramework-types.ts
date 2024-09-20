@@ -18,7 +18,7 @@ export type APIPermission<In, RequiredServices = Services> = (
 
 export type APIRoute<In, Out> =
   | {
-      type: 'post' | 'get' | 'delete' | 'patch' | 'head'
+      method: 'post' | 'get' | 'delete' | 'patch' | 'head'
       route: string
       schema: string | null
       requiresSession?: undefined | true
@@ -27,7 +27,7 @@ export type APIRoute<In, Out> =
       isStream?: undefined | false
     }
   | {
-      type: 'post' | 'get' | 'delete' | 'patch' | 'head'
+      method: 'post' | 'get' | 'delete' | 'patch' | 'head'
       route: string
       schema: string | null
       requiresSession: false
@@ -35,7 +35,7 @@ export type APIRoute<In, Out> =
       isStream?: undefined | false
     }
   | {
-      type: 'get'
+      method: 'get'
       route: string
       schema: string | null
       requiresSession?: undefined | true

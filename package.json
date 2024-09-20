@@ -4,12 +4,12 @@
   "description": "An example to a minimal express deployment with vramework",
   "main": "bin/main.ts",
   "dependencies": {
-    "@vramework/core": "^0.1.16",
-    "@vramework/deploy-express": "^0.1.16",
-    "@vramework/services-local": "^0.1.16"
+    "@vramework/core": "^0.1.17",
+    "@vramework/deploy-express": "^0.1.17",
+    "@vramework/services-local": "^0.1.17"
   },
   "devDependencies": {
-    "@vramework/cli": "^0.1.16",
+    "@vramework/cli": "^0.1.17",
     "oxlint": "^0.9.5",
     "prettier": "^3.3.3",
     "ts-node": "^10.9.2",
