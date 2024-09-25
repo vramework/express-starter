@@ -1,4 +1,4 @@
-import { RequireAtLeastOne } from '@vramework/core/types'
+import { RequireAtLeastOne } from '@vramework/core'
 
 export interface Book {
   id: string

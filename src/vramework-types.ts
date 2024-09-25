@@ -1,46 +1,12 @@
 import { Services, UserSession } from './api'
 
-export type APIFunction<In, Out, RequiredServices = Services> = (
-  services: RequiredServices,
-  data: In,
-  session: UserSession
-) => Promise<Out>
-export type APIFunctionSessionless<In, Out, RequiredServices = Services> = (
-  services: RequiredServices,
-  data: In,
-  session?: UserSession | undefined
-) => Promise<Out>
-export type APIPermission<In, RequiredServices = Services> = (
-  services: RequiredServices,
-  data: In,
-  session: UserSession
-) => Promise<boolean>
+import { CoreAPIFunction, CoreAPIPermission, CoreAPIRoute, addCoreRoute, AssertRouteParams } from '@vramework/core'
 
-export type APIRoute<In, Out> =
-  | {
-      method: 'post' | 'get' | 'delete' | 'patch' | 'head'
-      route: string
-      schema: string | null
-      requiresSession?: undefined | true
-      func: APIFunction<In, Out>
-      permissions?: Record<string, APIPermission<In>[] | APIPermission<In>>
-      isStream?: undefined | false
-    }
-  | {
-      method: 'post' | 'get' | 'delete' | 'patch' | 'head'
-      route: string
-      schema: string | null
-      requiresSession: false
-      func: APIFunctionSessionless<In, Out>
-      isStream?: undefined | false
-    }
-  | {
-      method: 'get'
-      route: string
-      schema: string | null
-      requiresSession?: undefined | true
-      func: APIFunctionSessionless<In, Out>
-      isStream: true
-    }
+export type APIFunctionSessionless<In, Out, RequiredServices = Services> = CoreAPIFunction<In, Out, RequiredServices, UserSession>
+export type APIFunction<In, Out, RequiredServices = Services> = CoreAPIFunction<In, Out, RequiredServices, UserSession>
+export type APIPermission<In, RequiredServices = Services> = CoreAPIPermission<In, RequiredServices, UserSession>
 
-export type APIRoutes = Array<APIRoute<any, any>>
+type APIRoute<In, Out, Route extends string> = CoreAPIRoute<In, Out, Route, APIFunction<In, Out>, APIFunctionSessionless<In, Out>, APIPermission<In>>
+export const addRoute = <In, Out, Route extends string>(route: APIRoute<In, Out, Route> & AssertRouteParams<In, Route>) => {
+  addCoreRoute(route as any)
+}

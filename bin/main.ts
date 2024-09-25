@@ -1,3 +1,6 @@
+import '../generated/routes'
+import '../generated/schemas'
+
 import { getVrameworkConfig } from '@vramework/core/vramework-config'
 import { VrameworkExpressServer } from '@vramework/deploy-express'
 

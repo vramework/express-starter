@@ -4,12 +4,12 @@
   "description": "An example to a minimal express deployment with vramework",
   "main": "bin/main.ts",
   "dependencies": {
-    "@vramework/core": "^0.1.17",
-    "@vramework/deploy-express": "^0.1.17",
-    "@vramework/services-local": "^0.1.17"
+    "@vramework/core": "^0.3.5",
+    "@vramework/deploy-express": "^0.3.5",
+    "@vramework/services-local": "^0.3.5"
   },
   "devDependencies": {
-    "@vramework/cli": "^0.1.17",
+    "@vramework/cli": "^0.3.5",
     "oxlint": "^0.9.5",
     "prettier": "^3.3.3",
     "ts-node": "^10.9.2",
@@ -17,6 +17,9 @@
     "typescript": "^5.5.4"
   },
   "scripts": {
+    "routes": "npx @vramework/cli routes",
+    "schemas": "npx @vramework/cli schemas",
+    "prebuild": "npm run routes && npm run schemas",
     "tsc": "tsc",
     "schema": "npx @vramework/cli schemas",
     "test": "echo \"Error: no test specified\" && exit 1",

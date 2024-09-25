@@ -2,7 +2,7 @@ import {
   CoreConfig,
   CoreSingletonServices,
   CoreUserSession,
-} from '@vramework/core/types'
+} from '@vramework/core'
 import { BookService } from './book.service'
 import { JWTService } from '@vramework/core'
 

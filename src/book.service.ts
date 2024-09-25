@@ -26,8 +26,12 @@ export class BookService {
    * @param id - The ID of the book to retrieve.
    * @returns The book object if found, or `undefined` if no book exists with the given ID.
    */
-  getBook(id: string): Book | undefined {
-    return this.books.get(id)
+  getBook(id: string): Book {
+    const book = this.books.get(id)
+    if (book) {
+      return book
+    }
+    throw new NotFoundError(`Book with ID ${id} not found`)
   }
 
   /**

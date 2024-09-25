@@ -5,7 +5,7 @@ import {
 import { ConsoleLogger } from '@vramework/core/services'
 import { Config, SingletonServices, UserSession } from './api'
 import { BookService } from './book.service'
-import { CreateSessionServices } from '@vramework/core/types'
+import { CreateSessionServices } from '@vramework/core'
 
 export const createSingletonServices = async (
   config: Config
