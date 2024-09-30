@@ -2,9 +2,9 @@ import {
   CoreConfig,
   CoreSingletonServices,
   CoreUserSession,
+  JWTService
 } from '@vramework/core'
 import { BookService } from './book.service'
-import { JWTService } from '@vramework/core'
 
 export interface Config extends CoreConfig {}
 

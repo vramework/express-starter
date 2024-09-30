@@ -2,10 +2,10 @@ import {
   VrameworkSessionService,
   JoseJWTService,
 } from '@vramework/services-local'
-import { ConsoleLogger } from '@vramework/core/services'
+import { ConsoleLogger, CreateSessionServices } from '@vramework/core'
+
 import { Config, SingletonServices, UserSession } from './api'
 import { BookService } from './book.service'
-import { CreateSessionServices } from '@vramework/core'
 
 export const createSingletonServices = async (
   config: Config
