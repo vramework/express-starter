@@ -52,7 +52,6 @@ export class BookService {
   updateBook(id: string, updatedInfo: Partial<Omit<Book, 'id'>>): Book {
     const book = this.getBook(id)
     if (book) {
-      console.log(id, { ...book, ...updatedInfo })
       this.books.set(id, { ...book, ...updatedInfo })
       return book
     }
