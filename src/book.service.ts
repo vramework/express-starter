@@ -52,7 +52,8 @@ export class BookService {
   updateBook(id: string, updatedInfo: Partial<Omit<Book, 'id'>>): Book {
     const book = this.getBook(id)
     if (book) {
-      Object.assign(book, updatedInfo)
+      console.log(id, { ...book, ...updatedInfo })
+      this.books.set(id, { ...book, ...updatedInfo })
       return book
     }
     throw new NotFoundError(`Book with ID ${id} not found`)
