@@ -1,5 +1,8 @@
 .DS_Store
 
+# NextJS 
+.next
+
 # Logs
 logs
 *.log
