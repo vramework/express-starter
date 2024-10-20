@@ -1,16 +1,16 @@
 import '../generated/routes'
+import '../generated/schemas'
 
-import request from 'supertest'
-import TestAgent from 'supertest/lib/agent'
+import * as request from 'supertest'
 
 import { LogLevel } from '@vramework/core'
-import { getVrameworkConfig } from '@vramework/core/vramework-config'
+import { getVrameworkCLIConfig } from '@vramework/core/vramework-cli-config'
 import { VrameworkExpressServer } from '@vramework/deploy-express'
 import { config } from '../src/config'
 import { createSingletonServices, createSessionServices } from '../src/services'
 
 const setupTestAgent = async () => {
-    const vrameworkConfig = await getVrameworkConfig()
+    const vrameworkConfig = await getVrameworkCLIConfig()
     const singletonServices = await createSingletonServices({
         ...config,
         logLevel: LogLevel.error
@@ -46,7 +46,7 @@ const setupTestAgent = async () => {
 }
 
 describe('Books', function () {
-    let agent: TestAgent
+    let agent: request.Agent
 
     beforeEach(async () => {
         agent = await setupTestAgent()
