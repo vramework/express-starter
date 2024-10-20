@@ -1,5 +1,5 @@
 import { Book, Books, CreateBook } from './books.types'
-import { NotFoundError } from '@vramework/core/errors'
+import { NotFoundError } from '@vramework/core'
 
 /**
  * Service for managing books with basic CRUD operations.
