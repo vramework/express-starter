@@ -3,14 +3,13 @@ import '../generated/schemas'
 
 import * as request from 'supertest'
 
-import { LogLevel } from '@vramework/core'
-import { getVrameworkCLIConfig } from '@vramework/core/vramework-cli-config'
+import { LogLevel, getVrameworkConfig } from '@vramework/core'
 import { VrameworkExpressServer } from '@vramework/deploy-express'
 import { config } from '../src/config'
 import { createSingletonServices, createSessionServices } from '../src/services'
 
 const setupTestAgent = async () => {
-    const vrameworkConfig = await getVrameworkCLIConfig()
+    const vrameworkConfig = await getVrameworkConfig()
     const singletonServices = await createSingletonServices({
         ...config,
         logLevel: LogLevel.error

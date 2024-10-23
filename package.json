@@ -4,14 +4,14 @@
   "description": "An example to a minimal express deployment with vramework",
   "main": "bin/main.ts",
   "dependencies": {
-    "@vramework/core": "^0.4.4",
-    "@vramework/deploy-express": "^0.4.4",
+    "@vramework/core": "^0.4.6",
+    "@vramework/deploy-express": "^0.4.6",
     "@vramework/services-local": "^0.4.3"
   },
   "devDependencies": {
     "@types/mocha": "^10.0.9",
     "@types/supertest": "^6.0.2",
-    "@vramework/cli": "^0.4.5",
+    "@vramework/cli": "^0.4.7",
     "mocha": "^10.7.3",
     "oxlint": "^0.9.5",
     "prettier": "^3.3.3",
@@ -24,6 +24,7 @@
     "routes": "npx --yes @vramework/cli routes",
     "schemas": "npx --yes @vramework/cli schemas",
     "prebuild": "npm run routes && npm run schemas",
+    "postinstall": "npm run prebuild",
     "tsc": "tsc",
     "test": "mocha e2e",
     "start": "ts-node --transpile-only bin/main.ts",
@@ -47,5 +48,8 @@
     "url": "https://github.com/vramework/express-example/issues"
   },
   "homepage": "https://github.com/vramework/express-example#readme",
-  "packageManager": "^npm@10.8.2"
+  "packageManager": "^npm@10.8.2",
+  "engines": {
+    "node": ">=20"
+  }
 }
