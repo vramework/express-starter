@@ -4,14 +4,17 @@
   "description": "An example to a minimal express deployment with vramework",
   "main": "bin/main.ts",
   "dependencies": {
-    "@vramework/core": "^0.4.6",
-    "@vramework/deploy-express": "^0.4.6",
-    "@vramework/services-local": "^0.4.3"
+    "@vramework/core": "^0.5",
+    "@vramework/express-middleware": "^0.5.2",
+    "@vramework/jose": "^0.5",
+    "body-parser": "^1.20.3",
+    "cookie-parser": "^1.4.7"
   },
   "devDependencies": {
+    "@types/cookie-parser": "^1.4.7",
     "@types/mocha": "^10.0.9",
     "@types/supertest": "^6.0.2",
-    "@vramework/cli": "^0.4.7",
+    "@vramework/cli": "^0.5",
     "mocha": "^10.7.3",
     "oxlint": "^0.9.5",
     "prettier": "^3.3.3",
@@ -50,6 +53,6 @@
   "homepage": "https://github.com/vramework/express-example#readme",
   "packageManager": "^npm@10.8.2",
   "engines": {
-    "node": ">=20"
+    "node": ">=18"
   }
 }

@@ -1,27 +1,13 @@
-import '../generated/routes'
-import '../generated/schemas'
-
 import * as request from 'supertest'
-
-import { LogLevel, getVrameworkConfig } from '@vramework/core'
-import { VrameworkExpressServer } from '@vramework/deploy-express'
-import { config } from '../src/config'
-import { createSingletonServices, createSessionServices } from '../src/services'
+import { ExpressServer } from '../src/server'
+import { LogLevel } from '@vramework/core'
 
 const setupTestAgent = async () => {
-    const vrameworkConfig = await getVrameworkConfig()
-    const singletonServices = await createSingletonServices({
-        ...config,
-        logLevel: LogLevel.error
-    })
-    const vrameworkServer = new VrameworkExpressServer(
-        vrameworkConfig,
-        config,
-        singletonServices,
-        createSessionServices
-    )
-    await vrameworkServer.init()
-    const agent = request.agent(vrameworkServer.app);
+    const vrameworkServer = new ExpressServer()
+    vrameworkServer.logger.setLevel(LogLevel.critical)
+    await vrameworkServer.start()
+
+    const agent = request.agent(vrameworkServer.server);
 
     await agent
         .post('/book')

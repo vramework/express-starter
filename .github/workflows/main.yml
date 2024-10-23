@@ -1,8 +1,9 @@
-name: Develop
-run-name: Develop
+name: Master
+run-name: Master
 on: [push]
 jobs:
   main:
+    name: Setup and test
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
@@ -13,5 +14,4 @@ jobs:
           cache: npm
       - run: npm install
       - run: npm run tsc
-      - run: npm run prebuild
       - run: npm run test

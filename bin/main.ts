@@ -1,24 +1,8 @@
-import '../generated/routes'
-import '../generated/schemas'
-
-import { getVrameworkConfig } from '@vramework/core/vramework-config'
-import { VrameworkExpressServer } from '@vramework/deploy-express'
-
-import { config } from '../src/config'
-import { createSessionServices, createSingletonServices } from '../src/services'
+import { ExpressServer } from '../src/server'
 
 async function main({ configFile }: { configFile?: string }): Promise<void> {
   try {
-    const vrameworkConfig = await getVrameworkConfig(configFile)
-    const singletonServices = await createSingletonServices(config)
-    const expressServer = new VrameworkExpressServer(
-      vrameworkConfig,
-      config,
-      singletonServices,
-      createSessionServices
-    )
-    expressServer.enableExitOnSigInt()
-    await expressServer.init()
+    const expressServer = new ExpressServer(configFile)
     await expressServer.start()
   } catch (e: any) {
     console.error(e.toString())

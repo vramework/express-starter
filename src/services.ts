@@ -1,21 +1,12 @@
-import {
-  VrameworkSessionService,
-  JoseJWTService,
-} from '@vramework/services-local'
-import { ConsoleLogger, CreateSessionServices, CreateSingletonServices } from '@vramework/core'
-
+import { CreateSessionServices, CreateSingletonServices, Logger, VrameworkSessionService } from '@vramework/core'
+import { JoseJWTService } from '@vramework/jose'
 import { Config, Services, SingletonServices, UserSession } from './api'
 import { BookService } from './book.service'
 
 export const createSingletonServices: CreateSingletonServices<Config, SingletonServices> = async (
-  config: Config
+  config: Config,
+  logger: Logger
 ): Promise<SingletonServices> => {
-  const logger = new ConsoleLogger()
-
-  if (config.logLevel) {
-    logger.setLevel(config.logLevel)
-  }
-
   const jwt = new JoseJWTService<UserSession>(
     async () => [
       {
